@@ -125,8 +125,8 @@
                 <div class="col-md-3">
                     <h5 class="fw-bold mb-3">Contact</h5>
                     <ul class="list-unstyled text-muted fs-6 d-flex flex-column gap-2">
-                        <li><i class="fas fa-users me-2"></i> Team: ABHIJITH, SINAN, Rohan</li>
-                        <li><i class="fas fa-phone me-2"></i> +91 7994409638</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Tech Lane, NY 10001</li>
+                        <li><i class="fas fa-phone me-2"></i> (800) 123-4567</li>
                         <li><i class="fas fa-envelope me-2"></i> support@electraize.com</li>
                     </ul>
                 </div>

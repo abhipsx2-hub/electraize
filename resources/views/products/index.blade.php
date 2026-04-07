@@ -9,15 +9,15 @@
     </div>
     
     <div class="row g-4">
-        @forelse(?products as ?product)
+        @forelse($products as $product)
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                    <img src="{{ ?product->image_url ?? 'https://via.placeholder.com/400x300?text=No+Image' }}" class="card-img-top" alt="{{ ?product->name }}" style="height: 200px; object-fit: cover;">
+                    <img src="{{ $product->image_url ?? 'https://via.placeholder.com/400x300?text=No+Image' }}" class="card-img-top" alt="{{ $product->name }}" style="height: 200px; object-fit: cover;">
                     <div class="card-body p-4 text-center">
-                        <span class="badge bg-primary bg-opacity-10 text-primary mb-2">{{ optional(?product->category)->name ?? 'Device' }}</span>
-                        <h3 class="card-title h6 fw-bold mb-2">{{ ?product->name }}</h3>
-                        <p class="text-primary fw-bold mb-3">?{{ number_format(?product->price, 2) }}</p>
-                        <a href="{{ route('products.show', ?product->id) }}" class="btn btn-outline-primary btn-sm rounded-pill w-100">View Details</a>
+                        <span class="badge bg-primary bg-opacity-10 text-primary mb-2">{{ optional($product->category)->name ?? 'Device' }}</span>
+                        <h3 class="card-title h6 fw-bold mb-2">{{ $product->name }}</h3>
+                        <p class="text-primary fw-bold mb-3">${{ number_format($product->price, 2) }}</p>
+                        <a href="{{ route('products.show', $product->id) }}" class="btn btn-outline-primary btn-sm rounded-pill w-100">View Details</a>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
     </div>
     
     <div class="mt-5 d-flex justify-content-center">
-        {{ ?products->links() }}
+        {{ $products->links() }}
     </div>
 </div>
 @endsection
