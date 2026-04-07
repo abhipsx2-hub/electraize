@@ -16,7 +16,7 @@
                     <div class="card-body p-4 text-center">
                         <span class="badge bg-primary bg-opacity-10 text-primary mb-2">{{ optional($product->category)->name ?? 'Device' }}</span>
                         <h3 class="card-title h6 fw-bold mb-2">{{ $product->name }}</h3>
-                        <p class="text-primary fw-bold mb-3">${{ number_format($product->price, 2) }}</p>
+                        <p class="text-primary fw-bold mb-3">₹{{ number_format($product->price, 2) }}</p>
                         <a href="{{ route('products.show', $product->id) }}" class="btn btn-outline-primary btn-sm rounded-pill w-100">View Details</a>
                     </div>
                 </div>

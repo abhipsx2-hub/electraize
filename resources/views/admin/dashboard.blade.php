@@ -65,7 +65,7 @@
                                 <tr>
                                     <td><strong>{{ str_pad($order->id, 5, '0', STR_PAD_LEFT) }}</strong></td>
                                     <td>{{ optional($order->user)->name ?? 'Guest' }}</td>
-                                    <td>${{ number_format($order->total_price, 2) }}</td>
+                                    <td>₹{{ number_format($order->total_price, 2) }}</td>
                                     <td><span class="badge {{ $order->status === 'completed' ? 'bg-success' : 'bg-warning text-dark' }}">{{ ucfirst($order->status) }}</span></td>
                                 </tr>
                                 @endforeach

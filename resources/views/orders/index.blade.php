@@ -36,14 +36,14 @@
                                 <span class="text-muted small">Qty: {{ $item->quantity }}</span>
                             </div>
                             <div class="fw-bold text-primary">
-                                ${{ number_format($item->price, 2) }}
+                                ₹{{ number_format($item->price, 2) }}
                             </div>
                         </div>
                         @endforeach
                     </div>
                     <div class="card-footer bg-light p-3 text-end border-0 rounded-bottom-4">
                         <span class="text-muted me-3">Total:</span>
-                        <h4 class="d-inline fw-bold text-dark">${{ number_format($order->total_price, 2) }}</h4>
+                        <h4 class="d-inline fw-bold text-dark">₹{{ number_format($order->total_price, 2) }}</h4>
                     </div>
                 </div>
             @empty
@@ -72,13 +72,13 @@
                                     <span class="fw-bold fs-6">{{ $details['name'] }}</span>
                                     <small class="d-block text-muted">x{{ $details['quantity'] }}</small>
                                 </div>
-                                <span class="fw-bold ">${{ number_format($details['price'] * $details['quantity'], 2) }}</span>
+                                <span class="fw-bold ">₹{{ number_format($details['price'] * $details['quantity'], 2) }}</span>
                             </div>
                         @endforeach
                         
                         <div class="d-flex justify-content-between mt-4">
                             <span class="fw-bold fs-5">Total</span>
-                            <span class="fw-bold fs-5 text-primary">${{ number_format($total, 2) }}</span>
+                            <span class="fw-bold fs-5 text-primary">₹{{ number_format($total, 2) }}</span>
                         </div>
                         
                         <hr class="my-4 text-muted">

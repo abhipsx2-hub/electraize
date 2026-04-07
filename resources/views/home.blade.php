@@ -5,8 +5,8 @@
 <section class="hero" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; padding: 5rem 0;">
     <div class="container d-flex flex-column flex-lg-row align-items-center gap-5">
         <div class="hero-text w-100 w-lg-50 text-center text-lg-start animate-fade-in">
-            <h1 class="display-4 fw-bold mb-4">Everything Electronics in One Place</h1>
-            <p class="lead mb-4 opacity-75">Buy premium new & refurbished devices, get expert repairs, sell your old tech, or schedule an eco-friendly e-waste pickup.</p>
+            <h1 class="display-4 fw-bold mb-4 text-dark" style="text-shadow: 1px 1px 2px rgba(255,255,255,0.8);">Everything Electronics in One Place</h1>
+            <p class="lead mb-4 text-dark fw-medium">Buy premium new & refurbished devices, get expert repairs, sell your old tech, or schedule an eco-friendly e-waste pickup.</p>
             <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
                 <a href="{{ route('products.index') }}" class="btn btn-light btn-lg px-4 text-primary fw-bold rounded-pill">Shop Now</a>
                 <a href="{{ route('repair.index') }}" class="btn btn-outline-light btn-lg px-4 rounded-pill">Book Repair</a>
@@ -76,7 +76,7 @@
                         <div class="card-body p-4 text-center">
                             <span class="badge bg-primary bg-opacity-10 text-primary mb-2">{{ optional($product->category)->name ?? 'Device' }}</span>
                             <h3 class="card-title h6 fw-bold mb-2">{{ $product->name }}</h3>
-                            <p class="text-primary fw-bold mb-3">${{ number_format($product->price, 2) }}</p>
+                            <p class="text-primary fw-bold mb-3">₹{{ number_format($product->price, 2) }}</p>
                             <a href="{{ route('products.show', $product->id) }}" class="btn btn-outline-primary btn-sm rounded-pill w-100">View Details</a>
                         </div>
                     </div>

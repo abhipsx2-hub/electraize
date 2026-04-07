@@ -11,7 +11,7 @@
             <span class="badge bg-primary bg-opacity-10 text-primary mb-2">{{ optional($product->category)->name ?? 'Device' }}</span>
             <span class="badge bg-secondary bg-opacity-10 text-secondary mb-2">{{ ucfirst($product->condition) }}</span>
             <h1 class="display-5 fw-bold mb-3">{{ $product->name }}</h1>
-            <p class="display-6 text-primary fw-bold mb-4">${{ number_format($product->price, 2) }}</p>
+            <p class="display-6 text-primary fw-bold mb-4">₹{{ number_format($product->price, 2) }}</p>
             <p class="text-muted mb-4">{{ $product->description }}</p>
             
             <form action="{{ route('cart.add', $product->id) }}" method="POST">
