@@ -43,4 +43,4 @@ RUN chmod -R 775 /var/www/html/database
 
 # IMPORTANT: During deploy, we ensure tables exist automatically.
 # We no longer wipe the database or force seeds!
-CMD php artisan migrate --force && apache2-foreground
+CMD php artisan migrate --force && php artisan db:seed --force && apache2-foreground
