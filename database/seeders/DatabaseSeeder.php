@@ -33,7 +33,8 @@ class DatabaseSeeder extends Seeder
         $brandDell = Brand::firstOrCreate(['slug' => 'dell'], ['name' => 'Dell']);
 
         // Products
-        Product::firstOrCreate(
+        // We use updateOrCreate so it forces the new INR prices and images!
+        Product::updateOrCreate(
             ['slug' => 'iphone-14-pro-256gb'],
             [
                 'category_id' => $catPhones->id,
@@ -47,13 +48,13 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        Product::firstOrCreate(
+        Product::updateOrCreate(
             ['slug' => 'macbook-pro-m2-14'],
             [
                 'category_id' => $catLaptops->id,
                 'brand_id' => $brandApple->id,
                 'name' => 'MacBook Pro M2 - 14"',
-                'description' => 'Supercharged by M2 Pro or M2 Max, MacBook Pro takes its power and efficiency further than ever.',
+                'description' => 'Supercharged by M2 Pro or M2 Max, MacBook Pro.',
                 'price' => 189900.00,
                 'stock' => 15,
                 'condition' => 'new',
@@ -61,13 +62,13 @@ class DatabaseSeeder extends Seeder
             ]
         );
         
-        Product::firstOrCreate(
+        Product::updateOrCreate(
             ['slug' => 'samsung-galaxy-s23-ultra'],
             [
                 'category_id' => $catPhones->id,
                 'brand_id' => $brandSamsung->id,
                 'name' => 'Samsung Galaxy S23 Ultra',
-                'description' => 'Capture the night in low light like never before with Nightography.',
+                'description' => 'Capture the night in low light.',
                 'price' => 114999.00,
                 'stock' => 20,
                 'condition' => 'new',
@@ -75,13 +76,13 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        Product::firstOrCreate(
+        Product::updateOrCreate(
             ['slug' => 'dell-xps-13'],
             [
                 'category_id' => $catLaptops->id,
                 'brand_id' => $brandDell->id,
                 'name' => 'Dell XPS 13 Plus',
-                'description' => 'Performance and design at its absolute peak. Powered by 13th Gen Intel.',
+                'description' => 'Performance and design at its absolute peak.',
                 'price' => 156900.00,
                 'stock' => 10,
                 'condition' => 'new',
@@ -89,7 +90,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        Product::firstOrCreate(
+        Product::updateOrCreate(
             ['slug' => 'apple-watch-ultra'],
             [
                 'category_id' => $catWatches->id,
@@ -99,7 +100,8 @@ class DatabaseSeeder extends Seeder
                 'price' => 89900.00,
                 'stock' => 30,
                 'condition' => 'new',
-                'image_url' => 'https://images.unsplash.com/photo-1434493789847-2f02b9cb241e?w=500'
+                // Updated with an explicitly public watch image link
+                'image_url' => 'https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?auto=format&fit=crop&w=500&q=80'
             ]
         );
     }
