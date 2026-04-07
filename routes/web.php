@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+// Fix Laravel auth default redirect
+Route::get('/home', function () {
+    if (auth()->check() && auth()->user()->role === 'admin') {
+        return redirect()->route('admin.dashboard');
+    }
+    return redirect('/');
+});
+
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 
