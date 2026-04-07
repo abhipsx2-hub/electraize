@@ -41,6 +41,6 @@ RUN touch /var/www/html/database/database.sqlite
 RUN chown -R www-data:www-data /var/www/html/database
 RUN chmod -R 775 /var/www/html/database
 
-# IMPORTANT: During deploy, we migrate the database and insert the seed data automatically!
-# This allows the site to work instantly on Render's ephemeral free instances.
-CMD php artisan migrate:fresh --seed --force && apache2-foreground
+# IMPORTANT: During deploy, we ensure tables exist automatically.
+# We no longer wipe the database or force seeds!
+CMD php artisan migrate --force && apache2-foreground
