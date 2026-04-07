@@ -12,7 +12,7 @@
             <div class="card shadow-sm border-0 border-start border-4 border-primary rounded-3 text-center py-3">
                 <div class="card-body">
                     <h5 class="text-muted mb-2 fw-semibold">Total Users</h5>
-                    <h2 class="display-5 fw-bold m-0">{{ $total_users }}</h2>
+                    <h2 class="display-5 fw-bold m-0">{{ ?total_users }}</h2>
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
             <div class="card shadow-sm border-0 border-start border-4 border-success rounded-3 text-center py-3">
                 <div class="card-body">
                     <h5 class="text-muted mb-2 fw-semibold">Total Orders</h5>
-                    <h2 class="display-5 fw-bold m-0">{{ $total_orders }}</h2>
+                    <h2 class="display-5 fw-bold m-0">{{ ?total_orders }}</h2>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
             <div class="card shadow-sm border-0 border-start border-4 border-info rounded-3 text-center py-3">
                 <div class="card-body">
                     <h5 class="text-muted mb-2 fw-semibold">Products</h5>
-                    <h2 class="display-5 fw-bold m-0">{{ $total_products }}</h2>
+                    <h2 class="display-5 fw-bold m-0">{{ ?total_products }}</h2>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
             <div class="card shadow-sm border-0 border-start border-4 border-warning rounded-3 text-center py-3">
                 <div class="card-body">
                     <h5 class="text-muted mb-2 fw-semibold">Pending Repairs</h5>
-                    <h2 class="display-5 fw-bold m-0">{{ $pending_repairs }}</h2>
+                    <h2 class="display-5 fw-bold m-0">{{ ?pending_repairs }}</h2>
                 </div>
             </div>
         </div>
@@ -61,12 +61,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($recent_orders as $order)
+                                @foreach(?recent_orders as ?order)
                                 <tr>
-                                    <td><strong>{{ str_pad($order->id, 5, '0', STR_PAD_LEFT) }}</strong></td>
-                                    <td>{{ optional($order->user)->name ?? 'Guest' }}</td>
-                                    <td>${{ number_format($order->total_price, 2) }}</td>
-                                    <td><span class="badge {{ $order->status === 'completed' ? 'bg-success' : 'bg-warning text-dark' }}">{{ ucfirst($order->status) }}</span></td>
+                                    <td><strong>{{ str_pad(?order->id, 5, '0', STR_PAD_LEFT) }}</strong></td>
+                                    <td>{{ optional(?order->user)->name ?? 'Guest' }}</td>
+                                    <td>?{{ number_format(?order->total_price, 2) }}</td>
+                                    <td><span class="badge {{ ?order->status === 'completed' ? 'bg-success' : 'bg-warning text-dark' }}">{{ ucfirst(?order->status) }}</span></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -94,12 +94,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($recent_repairs as $repair)
+                                @foreach(?recent_repairs as ?repair)
                                 <tr>
-                                    <td>{{ $repair->name }}</td>
-                                    <td class="text-truncate" style="max-width: 150px;" title="{{ $repair->issue }}">{{ $repair->issue }}</td>
-                                    <td>{{ $repair->phone }}</td>
-                                    <td><span class="badge bg-secondary">{{ ucfirst($repair->status) }}</span></td>
+                                    <td>{{ ?repair->name }}</td>
+                                    <td class="text-truncate" style="max-width: 150px;" title="{{ ?repair->issue }}">{{ ?repair->issue }}</td>
+                                    <td>{{ ?repair->phone }}</td>
+                                    <td><span class="badge bg-secondary">{{ ucfirst(?repair->status) }}</span></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -128,13 +128,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($recent_ewaste as $ewaste)
+                                @foreach(?recent_ewaste as ?ewaste)
                                 <tr>
-                                    <td>{{ $ewaste->name }}</td>
-                                    <td>{{ $ewaste->phone }}</td>
-                                    <td>{{ $ewaste->item_description }}</td>
-                                    <td>{{ $ewaste->address }}</td>
-                                    <td><span class="badge bg-dark">{{ ucfirst($ewaste->status) }}</span></td>
+                                    <td>{{ ?ewaste->name }}</td>
+                                    <td>{{ ?ewaste->phone }}</td>
+                                    <td>{{ ?ewaste->item_description }}</td>
+                                    <td>{{ ?ewaste->address }}</td>
+                                    <td><span class="badge bg-dark">{{ ucfirst(?ewaste->status) }}</span></td>
                                 </tr>
                                 @endforeach
                             </tbody>
